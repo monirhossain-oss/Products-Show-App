@@ -7,10 +7,10 @@ import ProductHighlights from "./components/ProductHighlights";
 export default function Home() {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <ProductHighlights />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

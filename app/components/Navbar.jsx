@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -29,12 +29,12 @@ export default function Navbar() {
                 {/* Right: Login / Profile */}
                 <div className="relative">
                     {!session ? (
-                        <button
-                            onClick={() => signIn()}
+                        <Link
+                            href="/login"
                             className="px-4 py-2 cursor-pointer bg-blue-600 text-white rounded-lg hover:bg-blue-700"
                         >
                             Login
-                        </button>
+                        </Link>
                     ) : (
                         <div className="relative">
                             <img
@@ -53,7 +53,7 @@ export default function Navbar() {
                                         Dashboard
                                     </Link>
                                     <button
-                                        onClick={() => signOut()}
+                                        onClick={() => signOut({ callbackUrl: "/" })}
                                         className="w-full text-black text-left px-4 py-2 hover:bg-gray-100"
                                     >
                                         Logout
